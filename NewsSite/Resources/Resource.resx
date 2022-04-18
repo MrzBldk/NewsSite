@@ -159,6 +159,9 @@
   <data name="News" xml:space="preserve">
     <value>Новости</value>
   </data>
+  <data name="NoFile" xml:space="preserve">
+    <value>Загрузите картинку</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
   </data>
@@ -166,7 +169,7 @@
     <value>Подтвердите пароль</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Зарегестрироваться</value>
+    <value>Зарегистрироваться</value>
   </data>
   <data name="Registration" xml:space="preserve">
     <value>Регистрация</value>
@@ -185,6 +188,12 @@
   </data>
   <data name="UnmatchingPasswords" xml:space="preserve">
     <value>Пароли не совпадают</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Загрузить файл</value>
+  </data>
+  <data name="WrongFile" xml:space="preserve">
+    <value>Выберите файл формата png или jpg</value>
   </data>
   <data name="WrongLogin" xml:space="preserve">
     <value>Неправильный логин/пароль</value>

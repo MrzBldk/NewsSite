@@ -7,13 +7,6 @@
     white-space: normal;
 }
 
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-
 html {
     font-size: 14px;
 }

@@ -159,6 +159,9 @@
   <data name="News" xml:space="preserve">
     <value>News</value>
   </data>
+  <data name="NoFile" xml:space="preserve">
+    <value>Upload an image</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -185,6 +188,12 @@
   </data>
   <data name="UnmatchingPasswords" xml:space="preserve">
     <value>Passwords do not match</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload file</value>
+  </data>
+  <data name="WrongFile" xml:space="preserve">
+    <value>Please, select png or jpg file</value>
   </data>
   <data name="WrongLogin" xml:space="preserve">
     <value>Wrong Login or Password</value>

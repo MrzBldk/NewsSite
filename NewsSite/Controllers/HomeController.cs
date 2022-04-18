@@ -54,32 +54,47 @@ namespace NewsSite.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateNews(NewsModel model, HttpPostedFileBase image)
         {
-            if (ModelState.IsValid && image != null)
+            if (ModelState.IsValid)
             {
-                byte[] data;
-                using (Stream inputStream = image.InputStream)
+                if (image == null)
                 {
-                    var memoryStream = inputStream as MemoryStream;
-                    if (memoryStream == null)
-                    {
-                        memoryStream = new MemoryStream();
-                        inputStream.CopyTo(memoryStream);
-                    }
-                    data = memoryStream.ToArray();
+                    ModelState.AddModelError("", Resources.Resource.NoFile);
                 }
-                var news = new News() { Header = model.Header, Subheader = model.Subheader, Text = model.Text, Image = data };
-                db.News.Add(news);
-                await db.SaveChangesAsync();
-                return RedirectToAction("News", "Home");
+                else
+                {
+                    string extension = image.FileName.Split('.').Last();
+                    if (extension != "jpeg" && extension != "jpg" && extension != "png")
+                    {
+                        ModelState.AddModelError("", Resources.Resource.WrongFile);
+                    }
+                    else
+                    {
+                        byte[] data;
+                        using (Stream inputStream = image.InputStream)
+                        {
+                            if (!(inputStream is MemoryStream memoryStream))
+                            {
+                                memoryStream = new MemoryStream();
+                                inputStream.CopyTo(memoryStream);
+                            }
+                            data = memoryStream.ToArray();
+                        }
+                        var news = new News() { Header = model.Header, Subheader = model.Subheader, Text = model.Text, Image = data };
+                        db.News.Add(news);
+                        await db.SaveChangesAsync();
+                        return RedirectToAction("News", "Home");
+                    }
+                }
             }
             return View(model);
         }
 
-        public ActionResult EditNews(int id)
+        public async Task<ActionResult> EditNews(int id)
         {
             if (User.Identity.IsAuthenticated)
             {
-                return View(new NewsModel { Id = id });
+                News news = await db.News.FindAsync(id);
+                return View(new NewsModel { Id = id, Header = news.Header, Subheader = news.Subheader, Text = news.Subheader });
             }
             return Content(Resources.Resource.AccessViolation);
         }

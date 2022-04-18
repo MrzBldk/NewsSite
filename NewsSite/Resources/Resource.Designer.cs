@@ -187,6 +187,15 @@ namespace NewsSite.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузите картинку.
+        /// </summary>
+        public static string NoFile {
+            get {
+                return ResourceManager.GetString("NoFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль.
         /// </summary>
         public static string Password {
@@ -205,7 +214,7 @@ namespace NewsSite.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Зарегестрироваться.
+        ///   Ищет локализованную строку, похожую на Зарегистрироваться.
         /// </summary>
         public static string Register {
             get {
@@ -264,6 +273,24 @@ namespace NewsSite.Resources {
         public static string UnmatchingPasswords {
             get {
                 return ResourceManager.GetString("UnmatchingPasswords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузить файл.
+        /// </summary>
+        public static string Upload {
+            get {
+                return ResourceManager.GetString("Upload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выберите файл формата png или jpg.
+        /// </summary>
+        public static string WrongFile {
+            get {
+                return ResourceManager.GetString("WrongFile", resourceCulture);
             }
         }
         
