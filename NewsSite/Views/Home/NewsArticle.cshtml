@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "NewsAricle";
+}
+
+@model NewsSite.Models.News
+
+<img src="@GetImgSrc(Model)" class="w-100">
+<div class="jumbotron p-3">
+    <h1 class="text-center">@Model.Header</h1>
+    <p class="font-weight-light">@Model.Subheader</p>
+    <p class="text-justify">@Model.Text</p>
+</div>
+
+@functions
+{
+    public string GetImgSrc(NewsSite.Models.News news)
+    {
+        string imageBase64Data = Convert.ToBase64String(news.Image);
+        return string.Format("data:image/jpg;base64,{0}", imageBase64Data);
+    }
+}

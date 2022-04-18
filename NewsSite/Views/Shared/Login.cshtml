@@ -1,0 +1,26 @@
+﻿@model NewsSite.Models.LoginModel
+
+
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@NewsSite.Resources.Resource.Login</button>
+    <div class="dropdown-menu">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "px-4 py-3" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+            <div class="form-group">
+                <label for="FormEmail">@NewsSite.Resources.Resource.Email</label>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @id = "FormEmail", @placeholder = "email@example.com" } })
+            </div>
+            <div class="form-group">
+                <label for="DropdownFormPassword">@NewsSite.Resources.Resource.Password</label>
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @id = "FormPassword" } })
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">@NewsSite.Resources.Resource.SignIn</button>
+        }
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink(@NewsSite.Resources.Resource.SignUp, "Register", "Account", new { area = "" }, new { @class = "dropdown-item" })
+    </div>
+</div>

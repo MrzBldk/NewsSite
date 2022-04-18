@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+    <h1>News Site</h1>
+    <p class="lead">@NewsSite.Resources.Resource.Descr</p>
+    <p>
+        @Html.ActionLink(@NewsSite.Resources.Resource.GoToList, "News", "Home", new { area = " " }, new { @class = "btn btn-primary btn-lg" })
+    </p>
+</div>
+
+@if (ViewBag.News != null)
+{
+<div class="row">
+    @foreach (NewsSite.Models.News news in ViewBag.News)
+    {
+        <div class="col-md-4">
+            <h2>@news.Header</h2>
+            <div class="text-break">@news.Subheader</div>
+            <br />
+            <p>
+                @Html.ActionLink(@NewsSite.Resources.Resource.GoToArticle, "NewsArticle", "Home", new { id = news.Id }, new { @class = "btn btn-primary" })
+            </p>
+        </div>
+    }
+</div>
+}

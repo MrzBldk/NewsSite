@@ -1,0 +1,31 @@
+﻿@model IEnumerable<NewsSite.Models.News>
+
+<div class="card-deck">
+    @foreach (var news in Model)
+    {
+        <div class="card d-inline-flex">
+            <img class="card-img-top" src="@GetImgSrc(news)">
+            <div class="card-body">
+                <h4 class="card-title">@news.Header</h4>
+                <p class="card-text">@news.Subheader</p>
+                @Html.ActionLink(@NewsSite.Resources.Resource.GoToArticle, "NewsArticle", "Home", new { id = news.Id }, new { @class = "btn btn-primary" })
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="card-footer">
+                    @Html.ActionLink(@NewsSite.Resources.Resource.Edit, "EditNews", "Home", new { id = news.Id }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink(@NewsSite.Resources.Resource.Delete, "DeleteNews", "Home", new { id = news.Id }, new { @class = "btn btn-danger" })
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@functions
+{
+    public string GetImgSrc(NewsSite.Models.News news)
+    {
+        string imageBase64Data = Convert.ToBase64String(news.Image);
+        return string.Format("data:image/jpg;base64,{0}", imageBase64Data);
+    }
+}
