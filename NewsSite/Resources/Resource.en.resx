@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessViolation" xml:space="preserve">
-    <value>You dont't have access to this page</value>
+    <value>You don't have access to this page</value>
   </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Choose language</value>
@@ -172,7 +172,7 @@
     <value>Register</value>
   </data>
   <data name="Registration" xml:space="preserve">
-    <value />
+    <value>Registration</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign in</value>
